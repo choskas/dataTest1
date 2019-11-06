@@ -128,18 +128,7 @@ export default class App extends Component {
      return promedio
     }
 
-    const promediosPorDia = (columna) =>{
-      let suma = columna.reduce((a,b)=>a + b)
-      let promedio = suma/7
-      return promedio
-     }
 
-     const promediosPorDiaString = (notNum)=>{
-      const one = notNum.map((one)=>{return parseFloat(one)})
-       let suma = one.reduce((a,b)=>a + b)
-      let promedio = suma/7
-      return promedio.toFixed(2)
-     }
 
     const promediosString = (notNum)=>{
      const one = notNum.map((one)=>{return parseFloat(one)})

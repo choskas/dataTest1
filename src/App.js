@@ -10,7 +10,7 @@ export default class App extends Component {
   state = {
     brandDate: {},
     store: {},
-    checked: {}
+    checked: false
   }
 
   
@@ -27,6 +27,9 @@ export default class App extends Component {
 
 
   render() {
+
+   
+
    const peasants = () => brandDate.map((one)=>{
       let llaves = one.peasants
       let valores = Object.values(llaves)
@@ -191,24 +194,15 @@ export default class App extends Component {
       averagePermanence.push(promedio.toFixed(2))
     }
 
-    const checkBox = () => {
+   
     
-      if (this.state.checked) {
-       return console.log( "Checked")
-      } else {
-       return console.log("Un-checked")
-      }
-    }
-    
+    const {checked} = this.state
   
 
-    console.log('asuptimeasas',attraction.map((one)=>{return parseFloat(one)}))
-    console.log(tickets().length)
-    console.log('brandDate', brandDate)
-    console.log('store', store.data)
+    
     return (
-      <div className="App">
-      <table style={{height: '60vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+      <div className="App" style={{background: 'black', color: 'white'}}>
+      <table style={{height: '60vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', border: '1px solid turquoise'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Tienda</strong></td>
       {store.data.map((oneStore, key)=>(
@@ -219,13 +213,13 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Paseantes</strong></td>
-       {this.isChecked ?  peasants().map((one)=>(
-        <tr>{one}</tr>
-      )):peasants().map((one)=>(
+       {checked ?  peasants().map((one)=>(
         <tr>{one/5}</tr>
+      )):peasants().map((one)=>(
+        <tr>{one}</tr>
       ))} 
 
-
+        
       <tr>{totales(peasants())}</tr>
       <tr>
           {promedios(peasants())}
@@ -233,9 +227,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Visitas</strong></td>
-      {visitors().map((one)=>(
+      {checked ?  visitors().map((one)=>(
+        <tr>{one/5}</tr>
+      )):visitors().map((one)=>(
         <tr>{one}</tr>
-      ))}
+      ))} 
+
       <tr>{totales(visitors())}</tr>
       <tr>
           {promedios(visitors())}
@@ -243,9 +240,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Cabinet</strong></td>
-      {cabinet().map((one)=>(
+      {checked ?  cabinet().map((one)=>(
+        <tr>{one/5}</tr>
+      )):cabinet().map((one)=>(
         <tr>{one}</tr>
-      ))}
+      ))} 
+
       <tr>{totales(cabinet())}</tr>
       <tr>
           {promedios(cabinet())}
@@ -253,9 +253,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Tickets</strong></td>
-      {tickets().map((one)=>(
+      {checked ?  tickets().map((one)=>(
+        <tr>{one/5}</tr>
+      )):tickets().map((one)=>(
         <tr>{one}</tr>
-      ))}
+      ))} 
+
       <tr>{totales(tickets())}</tr>
       <tr>
           {promedios(tickets())}
@@ -263,9 +266,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Atraccion</strong></td>
-      {attraction.map((one)=>(
+      {checked ?  attraction.map((one)=>(
+        <tr>{one/5}%</tr>
+      )):attraction.map((one)=>(
         <tr>{one}%</tr>
-      ))}
+      ))} 
+
       <tr>{totalesString(attraction)}</tr>
       <tr>
           {promediosString(attraction)}%
@@ -273,9 +279,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Persuasion</strong></td>
-      {persuasion.map((one)=>(
+      {checked ?  persuasion.map((one)=>(
+        <tr>{(one/5).toFixed(2)}%</tr>
+      )):persuasion.map((one)=>(
         <tr>{one}%</tr>
-      ))}
+      ))} 
+
       <tr>{totalesString(persuasion)}%</tr>
       <tr>
           {promediosString(persuasion)}%
@@ -283,9 +292,11 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Revenue</strong></td>
-      {revenue().map((one)=>(
-        <tr>{one}</tr>
-      ))}
+      {checked ?  revenue().map((one)=>(
+        <tr>{(one/5).toFixed(2)}%</tr>
+      )):revenue().map((one)=>(
+        <tr>{one}%</tr>
+      ))} 
       <tr>{totalesString(revenue())}</tr>
       <tr>
           {promediosString(revenue())}
@@ -293,9 +304,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Average Ticket</strong></td>
-      {averageTicket.map((one)=>(
-        <tr>{one}</tr>
-      ))}
+      {checked ?  averageTicket.map((one)=>(
+        <tr>{(one/5).toFixed(2)}%</tr>
+      )):averageTicket.map((one)=>(
+        <tr>{one}%</tr>
+      ))} 
+
       <tr>{totalesString(averageTicket)}</tr>
       <tr>
           {promediosString(averageTicket)}
@@ -303,9 +317,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Items</strong></td>
-      {items().map((one)=>(
-        <tr>{one}</tr>
-      ))}
+      {checked ?  items().map((one)=>(
+        <tr>{(one/5).toFixed(2)}%</tr>
+      )):items().map((one)=>(
+        <tr>{one}%</tr>
+      ))} 
+
       <tr>{totales(items())}</tr>
       <tr>
           {promedios(items())}
@@ -313,9 +330,11 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Item Per Ticket</strong></td>
-      {itemPerTicket.map((one)=>(
-        <tr>{one}</tr>
-      ))}
+      {checked ?  itemPerTicket.map((one)=>(
+        <tr>{(one/5).toFixed(5)}%</tr>
+      )):itemPerTicket.map((one)=>(
+        <tr>{one}%</tr>
+      ))} 
       <tr>{totalesString(itemPerTicket)}</tr>
       <tr>
           {promediosString(itemPerTicket)}
@@ -323,9 +342,12 @@ export default class App extends Component {
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Average permanence</strong></td>
-      {averagePermanence.map((one)=>(
-        <tr>{one} min</tr>
-      ))}
+      {checked ?  averagePermanence.map((one)=>(
+        <tr>{(one/5).toFixed(2)}%</tr>
+      )):averagePermanence.map((one)=>(
+        <tr>{one}%</tr>
+      ))} 
+
       <tr>{totalesString(averagePermanence)} min</tr> 
       <tr>
           {promediosString(averagePermanence)} min
@@ -338,8 +360,10 @@ export default class App extends Component {
       ))}
       </div>
       </table>
-      <input type="checkbox" onChange={(e)=>{this.isChecked(e)}} />
-	 Ver datos promediados por dia 
+      <div style={{height: '40vh', width: '100vw',float: 'left', background: 'black', paddingTop: '10vh'}}>
+      <input type="checkbox"  onChange={(e)=>{this.isChecked(e)}} defaultChecked={this.state.checked} />
+	 <p >Ver datos promediados por dia </p>
+    </div>
     </div>
     )
   }

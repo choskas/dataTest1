@@ -204,164 +204,164 @@ export default class App extends Component {
       <div className="App" style={{background: 'black', color: 'white'}}>
       <table style={{height: '60vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between', border: '1px solid turquoise'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Tienda</strong></td>
+      <td style={{ width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Tienda</strong></td>
       {store.data.map((oneStore, key)=>(
-        <tr key={key}>{oneStore.name}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} key={key}>{oneStore.name}</tr>
       ))}
-      <tr>Totales</tr>
-      <tr style={{}}>Promedios</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >Totales</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >Promedios</tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Paseantes</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Paseantes</strong></td>
        {checked ?  peasants().map((one)=>(
-        <tr>{one/5}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{one/5}</tr>
       )):peasants().map((one)=>(
-        <tr>{one}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
         
-      <tr>{totales(peasants())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totales(peasants())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promedios(peasants())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Visitas</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}} ><strong>Visitas</strong></td>
       {checked ?  visitors().map((one)=>(
-        <tr>{one/5}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{one/5}</tr>
       )):visitors().map((one)=>(
-        <tr>{one}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
-      <tr>{totales(visitors())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totales(visitors())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promedios(visitors())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Cabinet</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Cabinet</strong></td>
       {checked ?  cabinet().map((one)=>(
-        <tr>{one/5}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{one/5}</tr>
       )):cabinet().map((one)=>(
-        <tr>{one}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
-      <tr>{totales(cabinet())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totales(cabinet())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promedios(cabinet())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Tickets</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Tickets</strong></td>
       {checked ?  tickets().map((one)=>(
-        <tr>{one/5}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{one/5}</tr>
       )):tickets().map((one)=>(
-        <tr>{one}</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
-      <tr>{totales(tickets())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totales(tickets())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promedios(tickets())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Atraccion</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Atraccion</strong></td>
       {checked ?  attraction.map((one)=>(
-        <tr>{one/5}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{one/5}%</tr>
       )):attraction.map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}%</tr>
       ))} 
 
-      <tr>{totalesString(attraction)}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(attraction)}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(attraction)}%
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Persuasion</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Persuasion</strong></td>
       {checked ?  persuasion.map((one)=>(
-        <tr>{(one/5).toFixed(2)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(2)}%</tr>
       )):persuasion.map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}%</tr>
       ))} 
 
-      <tr>{totalesString(persuasion)}%</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(persuasion)}%</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(persuasion)}%
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Revenue</strong></td>
+      <td style={{width: '7.6vw',color: 'black', background: 'turquoise'}}><strong>Revenue</strong></td>
       {checked ?  revenue().map((one)=>(
-        <tr>{(one/5).toFixed(2)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(2)}</tr>
       )):revenue().map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
-      <tr>{totalesString(revenue())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(revenue())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(revenue())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Average Ticket</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Tickets P.</strong></td>
       {checked ?  averageTicket.map((one)=>(
-        <tr>{(one/5).toFixed(2)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(2)}</tr>
       )):averageTicket.map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
-      <tr>{totalesString(averageTicket)}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(averageTicket)}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(averageTicket)}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Items</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Items</strong></td>
       {checked ?  items().map((one)=>(
-        <tr>{(one/5).toFixed(2)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(2)}</tr>
       )):items().map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
 
-      <tr>{totales(items())}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totales(items())}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promedios(items())}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Item Per Ticket</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Item Por Ticket</strong></td>
       {checked ?  itemPerTicket.map((one)=>(
-        <tr>{(one/5).toFixed(5)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(5)}</tr>
       )):itemPerTicket.map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}</tr>
       ))} 
-      <tr>{totalesString(itemPerTicket)}</tr>
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(itemPerTicket)}</tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(itemPerTicket)}
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Average permanence</strong></td>
+      <td style={{width: '7.6vw', color: 'black', background: 'turquoise'}}><strong>Permanencia P.</strong></td>
       {checked ?  averagePermanence.map((one)=>(
-        <tr>{(one/5).toFixed(2)}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid green'}} >{(one/5).toFixed(2)}min</tr>
       )):averagePermanence.map((one)=>(
-        <tr>{one}%</tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one}min</tr>
       ))} 
 
-      <tr>{totalesString(averagePermanence)} min</tr> 
-      <tr>
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{totalesString(averagePermanence)} min</tr> 
+      <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >
           {promediosString(averagePermanence)} min
         </tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
-      <td><strong>Dias Apagados</strong></td>
+      <td style={{width: '7.6vw', background: 'turquoise', color: 'black'}}><strong>Dias Apagados</strong></td>
       {upTime().map((one)=>(
-        <tr>{one} </tr>
+        <tr style={{width: '7.6vw', border: '1px solid turquoise'}} >{one} </tr>
       ))}
       </div>
       </table>
-      <div style={{height: '40vh', width: '100vw',float: 'left', background: 'black', paddingTop: '10vh'}}>
-      <input type="checkbox"  onChange={(e)=>{this.isChecked(e)}} defaultChecked={this.state.checked} />
+      <div style={{height: '40vh', width: '100vw',float: 'left', background: 'black', paddingTop: '10vh', border: '1px solid turquoise'}}>
+      <input type="checkbox" style={{width: '7.6vw', border: '1px solid turquoise'}}  onChange={(e)=>{this.isChecked(e)}} defaultChecked={this.state.checked} />
 	 <p >Ver datos promediados por dia </p>
     </div>
     </div>

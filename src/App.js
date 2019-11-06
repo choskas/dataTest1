@@ -9,8 +9,22 @@ export default class App extends Component {
   store = store.data
   state = {
     brandDate: {},
-    store: {}
+    store: {},
+    checked: {}
   }
+
+  
+  isChecked(e){
+   
+    let checked = this.state.checked
+    checked = e.target.checked
+    this.setState({checked})
+    console.log(checked)
+  }
+
+ 
+  
+
 
   render() {
    const peasants = () => brandDate.map((one)=>{
@@ -111,6 +125,19 @@ export default class App extends Component {
      return promedio
     }
 
+    const promediosPorDia = (columna) =>{
+      let suma = columna.reduce((a,b)=>a + b)
+      let promedio = suma/7
+      return promedio
+     }
+
+     const promediosPorDiaString = (notNum)=>{
+      const one = notNum.map((one)=>{return parseFloat(one)})
+       let suma = one.reduce((a,b)=>a + b)
+      let promedio = suma/7
+      return promedio.toFixed(2)
+     }
+
     const promediosString = (notNum)=>{
      const one = notNum.map((one)=>{return parseFloat(one)})
       let suma = one.reduce((a,b)=>a + b)
@@ -163,6 +190,15 @@ export default class App extends Component {
       let promedio = (((permanence()[i]*100)/permanenceCount()[i])/6000000)
       averagePermanence.push(promedio.toFixed(2))
     }
+
+    const checkBox = () => {
+    
+      if (this.state.checked) {
+       return console.log( "Checked")
+      } else {
+       return console.log("Un-checked")
+      }
+    }
     
   
 
@@ -172,20 +208,24 @@ export default class App extends Component {
     console.log('store', store.data)
     return (
       <div className="App">
-      <table style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+      <table style={{height: '60vh', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Tienda</strong></td>
       {store.data.map((oneStore, key)=>(
         <tr key={key}>{oneStore.name}</tr>
       ))}
       <tr>Totales</tr>
-      <tr>Promedios</tr>
+      <tr style={{}}>Promedios</tr>
       </div>
       <div style={{display: 'flex', justifyContent: 'space-between', flexDirection: 'column'}}>
       <td><strong>Paseantes</strong></td>
-      {peasants().map((one)=>(
+       {this.isChecked ?  peasants().map((one)=>(
         <tr>{one}</tr>
-      ))}
+      )):peasants().map((one)=>(
+        <tr>{one/5}</tr>
+      ))} 
+
+
       <tr>{totales(peasants())}</tr>
       <tr>
           {promedios(peasants())}
@@ -298,7 +338,8 @@ export default class App extends Component {
       ))}
       </div>
       </table>
-      
+      <input type="checkbox" onChange={(e)=>{this.isChecked(e)}} />
+	 Ver datos promediados por dia 
     </div>
     )
   }
